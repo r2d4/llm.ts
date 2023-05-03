@@ -1,0 +1,15 @@
+{
+  "name": "@llmts/simple",
+  "private": true,
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Matt Rickard <npm@matt-rickard.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc --build",
+    "start": "yarn build && node dist/index.js"
+  },
+  "dependencies": {
+    "@types/node": "^18.16.3"
+  }
+}
