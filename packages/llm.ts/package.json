@@ -1,6 +1,6 @@
 {
   "name": "llm.ts",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Matt Rickard <npm@matt-rickard.com>",
