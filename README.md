@@ -137,3 +137,6 @@ import { LLM, MODEL } from 'llm.ts';
 * OpenAI
 * Cohere
 * HuggingFace
+
+### License
+MIT
