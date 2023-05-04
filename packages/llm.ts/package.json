@@ -1,10 +1,12 @@
 {
   "name": "llm.ts",
-  "version": "0.0.4",
-  "main": "dist/index.js",
+  "version": "0.0.5",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "author": "Matt Rickard <npm@matt-rickard.com>",
   "license": "MIT",
+  "type": "module",
   "keywords": [
     "llm",
     "openai",
@@ -16,7 +18,17 @@
     "large language models",
     "chatgpt"
   ],
-  "dependencies": {
-    "axios": "^1.4.0"
+  "scripts": {
+    "build": "rm -r dist/ && rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-json": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "rollup": "^3.21.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1"
   }
 }

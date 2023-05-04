@@ -2,7 +2,7 @@
 
 Call 30+ LLMs with a single API. 
 * Send multiple prompts to multiple LLMs and get the results back in a single response.
-* Lightweight and fast (only one dependency: axios)
+* Zero dependencies (under 10kB minified)
 * Bring your own API keys
 * Works anywhere (Node, Deno, browser)
 

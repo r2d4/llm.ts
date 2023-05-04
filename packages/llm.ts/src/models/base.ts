@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { ModelCompletionRequest, ModelCompletionResponse } from "../shared/types";
 
 export abstract class AbstractBaseModel {
@@ -16,12 +15,21 @@ export abstract class AbstractBaseModel {
     public async completion(request: ModelCompletionRequest): Promise<ModelCompletionResponse> {
         const data = this.convertRequest(request);
         try {
-            return axios.post(this.baseUrl, data, {
+            return fetch(this.baseUrl, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.apiKey,
-                }
-            }).then(resp => this.convertResponse(resp.data));
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((responseData) => this.convertResponse(responseData));
         } catch (error) {
             console.error(error);
         }

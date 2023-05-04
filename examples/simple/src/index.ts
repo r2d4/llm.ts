@@ -23,6 +23,6 @@ import { LLM, MODEL } from 'llm.ts';
             MODEL.HF_GPT2,
         ],
     }).then(resp => {
-        console.log(JSON.stringify(resp, null, 2));
+        console.log(resp);
     })
 })()

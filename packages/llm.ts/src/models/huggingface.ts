@@ -1,4 +1,3 @@
-import axios, { AxiosResponse } from "axios";
 import { MODEL, ModelCompletionRequest, ModelCompletionResponse } from "../shared/types";
 
 type HuggingfaceCompletionRequest = {
@@ -109,17 +108,26 @@ export class Huggingface {
         } as HuggingfaceCompletionRequest;
         const modelEndpoint = modelMap[request.model.toString()];
         try {
-            return axios.post<HuggingfaceCompletionRequest, AxiosResponse<HuggingfaceCompletionResponse>>(`${this.baseUrl}/${modelEndpoint}`, data, {
+            return fetch(`${this.baseUrl}/${modelEndpoint}`, {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + this.apiKey,
-                }
-            }).then(resp => {
-                return {
-                    created: Date.now(),
-                    completion: resp.data[0].generated_text,
-                } as ModelCompletionResponse;
-            });
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then((responseData) => {
+                    return {
+                        created: Date.now(),
+                        completion: responseData[0].generated_text,
+                    } as ModelCompletionResponse;
+                });
         } catch (error) {
             console.error(error);
         }
