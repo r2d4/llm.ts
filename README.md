@@ -132,6 +132,7 @@ import { LLM, MODEL } from 'llm.ts';
 * pythia-70m
 * pythia-160m
 * pythia-12b
+* distilgpt2
 
 ### Hosting providers supported (want to add one, open a PR!):
 * OpenAI
