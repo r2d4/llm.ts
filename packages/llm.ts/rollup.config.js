@@ -9,7 +9,7 @@ export default [
   {
     input: "src/index.ts",
     output: {
-      file: "dist/index.cjs.js",
+      file: "dist/index.cjs",
       format: "cjs",
     },
     plugins: [
@@ -23,7 +23,7 @@ export default [
   {
     input: "src/index.ts",
     output: {
-      file: "dist/index.esm.js",
+      file: "dist/index.esm",
       format: "esm",
     },
     plugins: [
