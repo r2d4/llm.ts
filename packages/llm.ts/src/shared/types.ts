@@ -50,6 +50,7 @@ export const MODEL = {
     HF_PYTHIA_12B: 'pythia-12b',
     HF_PYTHIA_160M: 'pythia-160m',
     HF_PYTHIA_70M: 'pythia-70m',
+    HF_DISTILGPT2: 'distilgpt2'
 }
 
 type CompletionRequest = MultiCompletionRequest & CompletionOptions;
