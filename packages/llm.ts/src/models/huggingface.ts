@@ -104,7 +104,7 @@ export class Huggingface {
                 top_p: request.topP,
                 top_k: request.topK,
                 temperature: request.temperature,
-                maxNewTokens: request.maxTokens,
+                max_new_tokens: request.maxTokens,
                 repetition_penalty: request.presencePenalty,
                 return_full_text: false,
             }

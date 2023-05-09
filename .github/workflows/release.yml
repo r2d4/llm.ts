@@ -12,6 +12,6 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: yarn install --frozen-lockfile
-      - run: npm publish --access public --workspaces
+      - run: npm publish -w llm.ts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
