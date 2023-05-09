@@ -2,7 +2,7 @@
   "name": "llm.ts",
   "version": "0.0.6",
   "main": "dist/index.cjs",
-  "module": "dist/index.esm",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "author": "Matt Rickard <npm@matt-rickard.com>",
   "license": "MIT",
